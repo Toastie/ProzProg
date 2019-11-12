@@ -5,8 +5,8 @@
 uint32_t a, b;
 
 int main() {    
-    a = 35;
-    b = 79075;
+    a = 1058;
+    b = 58;
 
     while (a != 0 && b != 0){
         if (a > b){

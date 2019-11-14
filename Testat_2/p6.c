@@ -4,12 +4,13 @@
 int16_t i,j,a;
 
 int main(){
-    a = 0;
-	i = j = 67;
+    a = 1;
+	j = 67;
+	i = j + 1;
 	while(i >= j){
 		i++;
 		a++;
 	}
-	printf("%d",a);
+	printf("Alle positiven Zahlen <= %d",a);
 	return(0);
 }

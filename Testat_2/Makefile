@@ -20,3 +20,7 @@ blatt02_3.exe:
 blatt02_2.exe:
 	$(CC) $(CFLAGS) -o blatt02_2.exe blatt02_2.c
 	./blatt02_2.exe
+
+p1.exe:
+	$(CC) $(CFLAGS) -o p1.exe p1.c
+	./p1.exe

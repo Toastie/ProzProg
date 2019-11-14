@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-int16_t i,j;
-int32_t a;
+int16_t i,j,a;
 
 int main(){
     a = 0;

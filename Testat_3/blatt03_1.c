@@ -2,10 +2,11 @@
 
 double e,c;
 float f;
-int n;
+int n,g;
 
 int main(){
     //Berechnung für einen Double
+    g = 1;
     n = 0;
     do{
         c = 1;
@@ -17,7 +18,7 @@ int main(){
         // 1/2er potenz, damit wir eine negative zweierpotenz haben
         c = 1 / c;
         e = c / 2;
-    } while (1 + e > 1);
+    } while (g + e > g);
     printf("Für einen Double:\t");
     printf("%e\n",e);
     //Berechnung für einen Float
@@ -31,7 +32,7 @@ int main(){
         }
         c = 1 / c;
         f = c / 2;
-    } while (1 + f > 1);
+    } while (g + f > g);
     printf("Für einen Float:\t");
     printf("%e\n",f);
     return(0);

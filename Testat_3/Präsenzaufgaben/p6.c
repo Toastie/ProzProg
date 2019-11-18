@@ -6,7 +6,7 @@ int zahl2[]={7,6,5,4,3,2,1,0,-1};
 
 int main(){
     for(int i = 0; i < 9; i++){
-        printf("%Lu\n", zahl[i] * 9 + zahl2[i]);
+        printf("%llu\n", zahl[i] * 9 + zahl2[i]);
     }
     return(0);
 }

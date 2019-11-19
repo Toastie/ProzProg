@@ -6,7 +6,7 @@ int n,g;
 
 int main(){
     //Berechnung für einen Double
-    g = 1;
+    g = 2;
     n = 0;
     do{
         c = 1;
@@ -17,7 +17,7 @@ int main(){
         }
         // 1/2er potenz, damit wir eine negative zweierpotenz haben
         c = 1 / c;
-        e = c / 2;
+        e = c;
     } while (g + e > g);
     printf("Für einen Double:\t");
     printf("%e\n",e);
@@ -31,7 +31,7 @@ int main(){
             c = c * 2;
         }
         c = 1 / c;
-        f = c / 2;
+        f = c;
     } while (g + f > g);
     printf("Für einen Float:\t");
     printf("%e\n",f);

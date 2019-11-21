@@ -2,43 +2,51 @@
 #include <stdint.h>
 #include <math.h>
 
-uint64_t eexp(int x, int y){        //x hoch y
-    uint64_t eexp = 1;
+long double eexp(long double x, long double y){        //x hoch y
+    long double eexp = 1;
     for (int i = 1; i <= y; i++){
         eexp = eexp * x;
     }
     return(eexp);
 }
 
-uint64_t fak(int x){
-    uint64_t fak = 1;
+long double fak(long double x){  //Kakultät von X
+    long double fak = 1;
     for (int i = x; i > 1; i--){
         fak = fak * i;
     }
     return(fak);
 }
 
-long double esin(int x){
-    long double summe, ergebnis;
-    int k,i;
-    k = 1;
-    i = 0;
-    ergebnis = 0;
-    do{
-        i = 2*k + 1;
-        summe = (long double)eexp(x,i)/(long double)fak(i);
-        if (k % 2 != 0){
-            summe = summe * -1;
-        }
-        ergebnis = ergebnis + summe;
-        k++;
-    }while(ergebnis + summe > ergebnis);
-    return(ergebnis);
-}
 
 int main(){
-    printf("%Le\n", esin(5));
-    double x = 5;
-    double y = sin(x);
-    printf("%e",y);
+    double x,y,yold,k,summe,n;
+    //Abfrage des X Wertes
+    printf("Sin(x); x = ");
+    scanf("%lf",&x);
+    printf("\n");
+    k = 0;
+    //Das erste ergebnis der Summe ist immer X
+    y = summe = x;
+    printf("%0.1f\t",k);
+    printf("%0.17lf\n",y);
+    yold = y - 1;
+    k++;
+    while (y != yold){
+        yold = y;
+        //Berechnung des Nenners um nicht doppelt zu arebieten
+        n = 2 * k + 1;
+        //Berechnung des nächsten Kettenglieds
+        summe = eexp(-1,k)*(eexp(x,n)/fak(n));
+        //Berechnung der Summe
+        y = y + summe;
+        //Ausgabe des Zwischenergebnis
+        printf("%0.1f\t",k);
+        printf("%0.17lf\n",y);
+        k++;
+    }
+    //Ausgabe des Endergebnis
+    printf("Eigenes Ergebnis:\t%0.17lf\n",y);
+    printf("Ergebnis von math.h:\t%0.17lf\n",sin(x));
+    return(0);
 }

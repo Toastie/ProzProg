@@ -8,4 +8,8 @@ sinus.exe:
 arctan.exe:
 	$(CC) $(CFLAGS) -o arctan.exe arctan.c -lm
 	./arctan.exe
+
+ln.exe:
+	$(CC) $(CFLAGS) -o ln.exe ln.c -lm
+	./ln.exe
 	

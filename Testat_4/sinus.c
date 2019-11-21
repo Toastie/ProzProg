@@ -10,7 +10,7 @@ long double eexp(long double x, long double y){        //x hoch y
     return(eexp);
 }
 
-long double fak(long double x){  //Kakultät von X
+long double fak(long double x){  //Fakultät von X
     long double fak = 1;
     for (int i = x; i > 1; i--){
         fak = fak * i;
@@ -34,7 +34,7 @@ int main(){
     k++;
     while (y != yold){
         yold = y;
-        //Berechnung des Nenners um nicht doppelt zu arebieten
+        //Berechnung des Nenners um nicht doppelt zu arbeiten
         n = 2 * k + 1;
         //Berechnung des nächsten Kettenglieds
         summe = eexp(-1,k)*(eexp(x,n)/fak(n));

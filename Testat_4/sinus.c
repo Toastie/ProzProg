@@ -5,12 +5,9 @@
 
 int main(){
     double x,y,yold,k,summe;
-    //Abfrage des X Wertes
-    printf("Sin(x); x = ");
-    scanf("%lf",&x);
-    printf("\n");
+    x = 15;
     k = 0;
-    //Das erste ergebnis der Summe ist immer X
+    //Das erste Ergebnis der Summe ist immer X
     y = summe = x;
     printf("%0.1f\t",k);
     printf("%0.17lf\n",y);
@@ -18,7 +15,7 @@ int main(){
     k++;
     while (y != yold){
         yold = y;
-        //Berechnung des nächsten Kettenglieds mittels -altes Kettenglied * neuer anteil 
+        //Berechnung des nächsten Kettenglieds mittels -altes Kettenglied * neuer Anteil 
         summe = (-summe)*((x*x)/((2*k+1)*(2*k)));
         //Berechnung der Summe
         y = y + summe;
@@ -28,6 +25,7 @@ int main(){
         k++;
     }
     //Ausgabe des Endergebnis
+    printf("Sinus von %0.1lf:\n",x);
     printf("Eigenes Ergebnis:\t%0.17lf\n",y);
     printf("Ergebnis von math.h:\t%0.17lf\n",sin(x));
     return(0);

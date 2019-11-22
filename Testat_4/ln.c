@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 
-
-long double eexp(long double x, long double y){  //x hoch y
-    long double eexp = 1;
-    for (int i = 1; i <= y; i++){
-        eexp = eexp * x;
-    }
-    return(eexp);
-}
-
 int main(){
     double x,y,yold,summe,k;
     //Abfrage des gewünschten X Wertes
@@ -27,7 +18,8 @@ int main(){
     while (y != yold){
         yold = y;
         //Berechnung des nächsten Kettenglieds
-        summe = eexp(-1,k+1)*(eexp(x - 1,k)/k);
+        //-Vorgänger * Neuer anteil (Nenner wird durch den alten geteilt damit dieser sich kürzt)
+        summe = (-summe)*((x-1)/(k/(k-1)));
         //Bildung der Summe
         y = y + summe;
         //Ausgabe des Zwischenergebnis

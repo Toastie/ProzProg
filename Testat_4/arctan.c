@@ -2,17 +2,8 @@
 #include <stdint.h>
 #include <math.h>
 
-long double eexp(long double x, long double y){        //x hoch y
-    long double eexp = 1;
-    for (int i = 1; i <= y; i++){
-        eexp = eexp * x;
-    }
-    return(eexp);
-}
-
-
 int main(){
-    	double x,y, yold,n,summe,k;
+    	double x,y, yold,summe,k;
         //Abfrage des X Wertes
         printf("-1 <= x <= 1;  x = ");
         scanf("%lf",&x);
@@ -26,10 +17,9 @@ int main(){
         k = k + 1;
         while (y != yold){
             yold = y;
-            //Berechnung des Nenners um nicht doppelt rechnen zu müssen
-            n = 2*k+1;
-            //Berechnung es nächsten Kettenglieds
-            summe = eexp(-1,k)*(eexp(x,n)/n);
+            //Berechnung es nächsten Kettenglieds; Neues Glied = -Altes Glied * neuen Anteil
+            //Der Nenner muss durch den alten Nenner geteilt werden damit dieser sich kürzt
+            summe = (-summe)*((x*x)/((2*k+1)/(2*k-1)));
             //Berechnung der Summe
             y = y + summe;
             //Ausgabe des Zwischenergebnis

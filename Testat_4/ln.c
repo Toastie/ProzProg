@@ -18,7 +18,7 @@ int main(){
     while (y != yold){
         yold = y;
         //Berechnung des nächsten Kettenglieds
-        //-Vorgänger * Neuer anteil (Nenner wird durch den alten geteilt damit dieser sich kürzt)
+        //-Vorgänger * Neuer anteil (Nenner wird durch den Alten geteilt damit dieser sich kürzt)
         summe = (-summe)*((x-1)/(k/(k-1)));
         //Bildung der Summe
         y = y + summe;

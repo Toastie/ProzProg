@@ -1,6 +1,7 @@
 *.exe
 *.pdf
 *.o
+*.h
 Testat_1/
 Testat_2/blatt02_1.c
 Skripte/

@@ -9,3 +9,6 @@ plotting.exe:
 	$(CC) $(CFLAGS) -o plotting.exe plotting.c
 	./plotting.exe
 
+plotting2.exe:
+	$(CC) $(CFLAGS) -o plotting2.exe plotting2.c -lm
+	./plotting2.exe

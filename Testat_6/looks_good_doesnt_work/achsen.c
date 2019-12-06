@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include <stdio.h>
+#include <stdint.h>
 #include "./libBMP.h"
+
 
 
 int main(){
@@ -17,10 +18,7 @@ int main(){
     array = malloc(ges * sizeof(uint32_t));
 
     for (int i = 0; i < ges; i++){
-        array[i]=COLOR_WHITE;
+        array[i] = COLOR_WHITE;
     }
 
-    bmp_create("./white.bmp",array,w,h);
-
-    free(array);
 }

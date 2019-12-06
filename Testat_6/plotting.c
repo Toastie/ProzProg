@@ -3,18 +3,12 @@
 #include <math.h>
 #include "./libBMP.h"
 
-#define WIDTH 1300
-#define HEIGHT 650
-#define XMAX 6.5
-#define XMIN -6.5
-#define YMAX 1
-#define YMIN -1
-
-// Umrechnung von BMP in Mathematische Koordinaten
-void toMath(uint32_t xBmp, uint32_t yBmp, double *xMath, double *yMath){
-    *xMath = XMIN + ((xBmp * (XMAX - XMIN))/WIDTH);
-    *yMath = YMIN + ((yBmp * (YMAX - YMIN))/HEIGHT);
-}
+#define WIDTH 600
+#define HEIGHT 1200
+#define XMAX 5
+#define XMIN -5
+#define YMAX 125
+#define YMIN -125
 
 //Umrechnung von Mathematischen im BMP Koordinate
 void toBmp(double xMath, double yMath, uint32_t *xBmp, uint32_t *yBmp){
@@ -83,9 +77,9 @@ int main(){
     //Bau des Arrays (Hintergund & Achsen)
     buildArray(array);
 
-    
+
     for (double i = XMIN; i <= XMAX; i += schritt){
-        yMath = sin(i);
+        yMath = i*i*i;
         eintagen(i,yMath,array);
     }
     

@@ -7,12 +7,23 @@
 #define HEIGHT 1200
 #define XMAX 5
 #define XMIN -5
+
+//Die YMIN / YMAX Werte müssen anhand der Funktion angepasst werden, damit keine y werte ausgereichnet werden die außerhalb des Bereiches liegen!
 #define YMAX 125
 #define YMIN -125
+
+// Umrechnung von BMP in Mathematische Koordinaten
+void toMath(uint32_t xBmp, uint32_t yBmp, double *xMath, double *yMath){
+    *xMath = XMIN + ((xBmp * (XMAX - XMIN))/WIDTH);
+    *yMath = YMIN + ((yBmp * (YMAX - YMIN))/HEIGHT);
+}
 
 //Umrechnung von Mathematischen im BMP Koordinate
 void toBmp(double xMath, double yMath, uint32_t *xBmp, uint32_t *yBmp){
     *xBmp = (xMath - XMIN) * ((double)WIDTH / ((double)XMAX - (double)XMIN));
+
+    //Da die BMP und Mathematische Y Achse entgegengesetzt sind wird die BMP koordinate von unten aus gesehen berechnet.
+    //Um diesem entgegenzuwirken wird der Wert von der Höhe abgezogen um ihn von oben aus gesehen zu erhalten
     *yBmp = HEIGHT - ((yMath - YMIN) * ((double)HEIGHT / ((double)YMAX - (double)YMIN)));
 }
 
@@ -29,7 +40,7 @@ void buildArray(uint32_t *array){
     //Berechnen der Koordinaten des X Achsen anfangs
     toBmp(XMIN, 0, &x, &y);
 
-    //Umwandlung in Array Adresse
+    //Umwandlung der BMP Koordinate in die entsprechende Arrayadresse
     bmp = (y * WIDTH) + x;
 
     //Eintragung der X Achse
@@ -45,7 +56,7 @@ void buildArray(uint32_t *array){
 
     //Eintragung der Y Achse
     for (int i = 0; i < HEIGHT; i++){
-        //Ein roter Pixel pro reihe, also Koordinate der Y Achse + breite des Bildes
+        //Ein roter Pixel pro Reihe, also Koordinate der Y Achse + Breite des Bildes
         //ergibt die Koordinate der nächsten Zeile.
         array[bmp + (i * WIDTH)] = COLOR_RED;
     }
@@ -57,10 +68,13 @@ void buildArray(uint32_t *array){
 void eintagen(double xMath, double yMath, uint32_t *array){
     uint32_t bmp,x,y;
 
+    //Umwandelung in BMP Koordinaten
     toBmp(xMath,yMath,&x,&y);
 
+    //Umwandlung der BMP Koordinaten in die entsprechende Arrayposition
     bmp = (y * WIDTH) + x;
 
+    //Adresse wird der Wert für Schwarz zugewiesen
     array[bmp] = COLOR_BLACK;
 }
 
@@ -77,14 +91,20 @@ int main(){
     //Bau des Arrays (Hintergund & Achsen)
     buildArray(array);
 
-
+    //Ausrechnen der Mathematischen Koordinaten der einzutragenen Funktion, wobei i = x ist 
     for (double i = XMIN; i <= XMAX; i += schritt){
+
+        //Zurzeit f(x) = x^3
         yMath = i*i*i;
+        
+        //Funktionswerte in das Array eintragen
         eintagen(i,yMath,array);
     }
     
+    //Erstellen der .bmp Datei
     bmp_create("./plotting.bmp",array,WIDTH,HEIGHT);
 
+    //Freigabe des Arrayspeichers
     free(array);
     return(0);
 }

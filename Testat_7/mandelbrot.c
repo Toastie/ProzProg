@@ -56,7 +56,6 @@ int main(){
     
     for (int i = 0; i < HEIGHT; i++){
         for (int j = 0; j < WIDTH; j++){
-            //printf("%d %d\n",i,j);
             toMath(j,i,&x,&y);
 
             switch (mandelbrot(x,y,1,0)){
@@ -71,14 +70,8 @@ int main(){
         }
     }
 
-   /*
-   for (int i = 0; i < (WIDTH * HEIGHT); i++){
-       array[i] = COLOR_PINK;
-   }
-   */
-    
     bmp_create("./mandelbrot.bmp",array,WIDTH,HEIGHT);
 
-   //free(array);
+    free(array);
     return(0);
 }

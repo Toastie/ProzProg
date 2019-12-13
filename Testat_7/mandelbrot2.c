@@ -18,32 +18,46 @@ void toMath(uint32_t xBmp, uint32_t yBmp, double *xMath, double *yMath,int width
 
 //Ersetzt die im Array eingetragenen Rekursionsanzahl durch entsprechende Farben
 void buildArray(uint32_t *array,int width, int height,uint32_t nmax){
-    int schritt;
-    schritt = nmax / 5;
+    uint32_t j = 0;
+
+    //Colortable zum Einfärben der Mandelbrotmenge
+    const uint32_t mapping[16] = {
+	0x00421E0F,
+	0x0019071A,
+	0x0009012F,
+	0x00040449,
+	0x00000764,
+	0x000C2C8A,
+	0x001852B1,
+	0x00397DD1,
+	0x0086B5E5,
+	0x00D3ECF8,
+	0x00F1E9BF,
+	0x00F8C95F,
+	0x00FFAA00,
+	0x00CC8000,
+	0x00995700,
+	0x006A3403
+    };
+
+    //Schleife die alle Arrayelemente durchgeht und die Rekursionstiefe durch die Farbe ersetzt
     for (uint32_t i = 0; i < (width * height); i++){
-        if (array[i] == nmax){
+        //Falls die Rekursionstiefe der maximalen Tiefe entspricht wird dieser Pixel schwarz gefärbt da er als Teil der Mandelbrotmenge angenommen wird
+        if(array[i] == nmax){
             array[i] = COLOR_BLACK;
-        }else if(array[i] < (nmax / schritt)){
-            array[i] = COLOR_WHITE;
-        }else if(array[i] < (2 * (nmax / schritt))){
-            array[i] = COLOR_GREEN;
-        }else if(array[i] < (3 * (nmax / schritt))){
-            array[i] = COLOR_ORANGE;
-        }else if(array[i] < (4 * (nmax / schritt))){
-            array[i] = COLOR_RED;
         }else{
-            array[i] = COLOR_BLUE;
+            j = array[i] % 16;
+            array[i] = mapping[j];
         }
     }
-    
 
-    printf("build array successfull\n");
+    printf("buildArray successfull!\n");
 }
 
 //Rekursive berechnung der Folge
-void mandelbrot(uint32_t xBMP,uint32_t yBMP,uint32_t *array,double complex z,int width, int height,uint32_t nmax){
+void mandelbrot(uint32_t xBMP,uint32_t yBMP,uint32_t *array,long double complex z,int width, int height,uint32_t nmax){
     double betrag,xR,yI;
-    double complex c;
+    long double complex c;
     int bmp;
 
     //Berechnung des Speicherortes im Array
@@ -95,17 +109,17 @@ int main(){
     //Jede BMP Koordinate wird durchlaufen und es wird für sie bestimmt ob sie Teil der Mandelbrotmenge ist
     for (int i = 0; i < height; i++){
         for (int j = 0; j < width; j++){
-
             mandelbrot(j,i,array,0,width,height,nmax);
         }
     }
+    printf("calculation successfull!\n");
 
     //Bau des arrays, also Umwandlung von Rekursionstiefe in entsprechende Farben
     buildArray(array,width,height,nmax);
 
-
     //Erstellen der .bmp Datei
     bmp_create("./mandelbrot2.bmp",array,width,height);
+    printf("bmp_create successfull!\n");
 
     free(array);
     return(0);

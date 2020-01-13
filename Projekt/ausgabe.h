@@ -13,9 +13,9 @@ void printMenu(){
     printf("|                                       |\n");
     printf("+---------------------------------------+\n");
     printf("|                                       |\n");
-    printf("|   1. Einfach           2. Mittel      |\n");
-    printf("|   3. Schwer            4. Anleitung   |\n");
-    printf("|                                       |\n");
+    printf("|   1. Einfach            2. Mittel     |\n");
+    printf("|   3. Schwer             4. Anleitung  |\n");
+    printf("|              5. Beenden               |\n");
     printf("+---------------------------------------+\n");
 }
 

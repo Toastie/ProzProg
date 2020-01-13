@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "einfach.h"
 #include "ausgabe.h"
 
 
 int main(){
 
-    printE(einfach1,einfach1.loesung);
+    printMenu();
+    printf("TESTTESTSTTSTSTSTS");
+    system("clear");
+    printMenu();
 
     return(0);
 }

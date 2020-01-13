@@ -6,5 +6,5 @@
 |                                       |\n
 |   1. Einfach           2. Mittel      |\n
 |   3. Schwer            4. Anleitung   |\n
-|                                       |\n
+|              5. Beenden               |\n
 +---------------------------------------+\n

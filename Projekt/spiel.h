@@ -24,16 +24,23 @@ void spiel(struct einfach x){
     int a = 5 * x.schwierigkeit;
     int z,s,e;
 
+     printTest(x);
+
     while (nichtGeloest(x)){
-        printTest(x);
 
         printf("Eingabe:");
         scanf(" %d %d %d",&z,&s,&e);
 
-        x.array[(z - 1)][(s - 1)] = e;
+        if(e != 1 && e != 2){
+            printf(RED"Falsche Eingabe!"RESET);
+        }else if(z > a || s > a || z < 0 || s < 0){
+            printf(RED"Falsche Zeilen / Spalten Eingabe!"RESET);
+        }else{
+            x.array[(z - 1)][(s - 1)] = e;
+            printTest(x);
+        }
     }
     
-    printTest(x);
     getchar();
     return;
 }

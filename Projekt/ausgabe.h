@@ -88,14 +88,6 @@ void printTest(struct einfach x){
         }
     }
 
-/*  Irrelevant ???????  Scheinbar ja idk lass ich erstmal drin
-    for(int r = 0; r < (a /2) + 1; r++){
-        if(spalteNichtLeer(x,r)){
-            printf("  ");
-        }
-    }
-*/
-
     //Ausgabe der Anzahl der Kreuze in den Zeilen
     for (int i = 0; i < a; i++){
         for (int r = 0; r < (a /2) + 1; r++){
@@ -119,17 +111,19 @@ void printTest(struct einfach x){
             if(x.array[i][j] == 1){
                 printf("x");
             }else if(x.array[i][j] == 2){
-                printf("o");
+                printf(GRN"o"RESET);
+                if((i + 1) % 5 == 0){
+                    printf(UNDER);
+                }
             }else{
                 printf(" ");
             }
         }
         printf(RED "|\n" RESET);
     }
+    
     printf(RESET);
     return;
-
 }
-
 
 #endif

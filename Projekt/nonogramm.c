@@ -44,9 +44,6 @@ void einfach(struct einfach x){
 int main(){
     char eingabe;
 
-    printf("test");
-    getchar();
-
     while(1){
         system("clear");    
         printMenu();

@@ -45,6 +45,7 @@ int main(){
     char eingabe;
 
     while(1){
+        printf(RESET);
         system("clear");    
         printMenu();
         scanf(" %1c",&eingabe);
@@ -65,6 +66,7 @@ int main(){
             getchar();
             break;
         case 53:
+            system("clear");
             return (0);
             break;
         default:

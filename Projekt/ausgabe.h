@@ -5,7 +5,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define YEL   "\x1B[33m"
+#define BLU   "\x1B[34m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
+#define UNDER "\e[4m"
+
 void printMenu(){
+    printf(RESET);
+    system("clear");
     printf("\n\n");
     printf("+---------------------------------------+\n");
     printf("|                                       |\n");
@@ -15,7 +27,7 @@ void printMenu(){
     printf("|                                       |\n");
     printf("|   1. Einfach            2. Mittel     |\n");
     printf("|   3. Schwer             4. Anleitung  |\n");
-    printf("|              5. Beenden               |\n");
+    printf("|              "RED"5. Beenden"RESET"               |\n");
     printf("+---------------------------------------+\n");
 }
 
@@ -53,34 +65,36 @@ void printTest(struct einfach x){
                     printf("  ");
                 }
             }
+            if(i == (a / 2)){
+                printf(UNDER);
+            }
             for (int j = 0; j < a; j++){
                 if(j % 5 == 0){
+                    printf(RED "|" RESET);
+                    if(i == (a / 2)){
+                        printf(UNDER);
+                    }
+                }else{
                     printf("|");
                 }
                 if(x.spalten[i][j] != 0){
-                    printf("|%d",x.spalten[i][j]);
+                    printf("%d",x.spalten[i][j]);
                 }else {
-                    printf("| ");
+                    printf(" ");
                 }
             }
-            printf("|\n");
+            printf(RED "|\n" RESET);
         }
     }
 
-    //Ausgabe des Trennstrich       Muss noch überarbeitet werden
-
+/*  Irrelevant ???????  Scheinbar ja idk lass ich erstmal drin
     for(int r = 0; r < (a /2) + 1; r++){
         if(spalteNichtLeer(x,r)){
             printf("  ");
         }
     }
-    
-    for (int i = 0; i < (a * 2) + 3; i++){
-        printf("-");
-    }
-    
-    printf("\n");
-    
+*/
+
     //Ausgabe der Anzahl der Kreuze in den Zeilen
     for (int i = 0; i < a; i++){
         for (int r = 0; r < (a /2) + 1; r++){
@@ -88,19 +102,28 @@ void printTest(struct einfach x){
                 printf("|%d",x.zeilen[i][r]);
             }
         }
-
+        if((i + 1) % 5 == 0){
+            printf(UNDER);
+        }
         for (int j = 0; j < a; j++){
             if(j % 5 == 0){
+                printf(RED "|" RESET);
+                if((i + 1) % 5 == 0){
+                    printf(UNDER);
+                }
+            }else{
                 printf("|");
             }
+            
             if(x.array[i][j] == 1){
-                printf("|x");
+                printf("x");
             }else{
-                printf("| ");
+                printf(" ");
             }
         }
-        printf("|\n");
+        printf(RED "|\n" RESET);
     }
+    printf(RESET);
     return;
 
 }

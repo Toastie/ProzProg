@@ -31,6 +31,7 @@ void spiel(struct einfach x){
     }
     
     printTest(x);
+    getchar();
     return;
 }
 

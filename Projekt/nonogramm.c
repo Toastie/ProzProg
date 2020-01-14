@@ -5,41 +5,6 @@
 #include "ausgabe.h"
 #include "spiel.h"
 
-/*
-int nichtGeloestE(int a[5][5], int b[5][5]){
-    for (int i = 0; i < 5; i++){
-        for (int j = 0; j < 5; j++){
-            if (a[i][j] != b[i][j]){
-                return(1);
-            }
-        }
-    }
-    return(0);
-}
-
-void einfach(struct einfach x){
-    int r[5][5];
-    int z,s,e;
-
-    for (int i = 0; i < 5; i++){
-        for (int j = 0; j < 5; j++){
-            r[i][j] = 0;
-        }
-    }
-
-    while (nichtGeloestE(x.loesung,r)){
-        printE(x,r);
-
-        printf("Eingabe:");
-        scanf("%d %d %d",&z,&s,&e);
-
-        r[(z - 1)][(s - 1)] = e;
-    }
-    
-    printE(x,r);
-}
-
-*/
 
 int main(){
     char eingabe;

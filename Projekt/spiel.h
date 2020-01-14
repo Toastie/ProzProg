@@ -23,8 +23,9 @@ int nichtGeloest(struct einfach x){
 void spiel(struct einfach x){
     int a = 5 * x.schwierigkeit;
     int z,s,e;
-
-     printTest(x);
+    
+    system("clear");
+    printTest(x);
 
     while (nichtGeloest(x)){
 
@@ -37,10 +38,12 @@ void spiel(struct einfach x){
             printf(RED"Falsche Zeilen / Spalten Eingabe!"RESET);
         }else{
             x.array[(z - 1)][(s - 1)] = e;
+            system("clear");
             printTest(x);
         }
     }
-    
+
+    printWin();
     getchar();
     return;
 }

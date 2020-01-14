@@ -14,6 +14,7 @@
 #define WHT   "\x1B[37m"
 #define RESET "\x1B[0m"
 #define UNDER "\e[4m"
+#define BOLD "\e[1m"
 
 void printMenu(){
     printf(RESET);

@@ -118,6 +118,8 @@ void printTest(struct einfach x){
             
             if(x.array[i][j] == 1){
                 printf("x");
+            }else if(x.array[i][j] == 2){
+                printf("o");
             }else{
                 printf(" ");
             }

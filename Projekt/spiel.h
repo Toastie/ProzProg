@@ -9,7 +9,10 @@ int nichtGeloest(struct einfach x){
 
     for (int i = 0; i < a; i++){
         for (int j = 0; j < a; j++){
-            if(x.loesung[i][j] != x.array[i][j]){
+            if(x.loesung[i][j] != x.array[i][j] && x.array[i][j] != 2){
+                return(1);
+            }
+            if(x.array[i][j] == 2 && x.loesung[i][j] != 0){
                 return(1);
             }
         }        

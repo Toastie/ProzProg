@@ -127,7 +127,7 @@ void printTest(struct einfach x){
 
 void printWin(){
 
-    printf(RESET"\"n\n");
+    printf(RESET"\n\n");
 
     printf(GRN);
 

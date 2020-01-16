@@ -32,6 +32,25 @@ void printMenu(){
     printf("+---------------------------------------+\n");
 }
 
+void printEinfach(){
+    printf(RESET);
+    system("clear");
+
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|                Einfach                |\n");
+    printf("|                                       |\n");
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|   1.                   2.             |\n");
+    printf("|   3.                   4.             |\n");
+    printf("|   5.                   6.             |\n");
+    printf("|   7.                   8.             |\n");
+    printf("|   9.                   10.            |\n");
+    printf("|               "RED"z: Zurück"RESET"               |\n");
+    printf("+---------------------------------------+\n");
+}
+
 int zeileNichtLeer(struct einfach x, int z){
     int a = 5 * x.schwierigkeit;
 

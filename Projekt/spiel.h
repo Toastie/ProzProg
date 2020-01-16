@@ -31,11 +31,12 @@ void spiel(struct einfach x){
 
         printf("Eingabe:");
         scanf(" %d %d %d",&z,&s,&e);
+        while(getchar() != '\n');
 
-        if(e != 1 && e != 2){
-            printf(RED"Falsche Eingabe!"RESET);
+        if(e != 1 && e != 2 && e != 0){
+            printf(RED"Falsche Eingabe!\n"RESET);
         }else if(z > a || s > a || z < 0 || s < 0){
-            printf(RED"Falsche Zeilen / Spalten Eingabe!"RESET);
+            printf(RED"Falsche Zeilen / Spalten Eingabe!\n"RESET);
         }else{
             x.array[(z - 1)][(s - 1)] = e;
             system("clear");

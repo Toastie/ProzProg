@@ -4,6 +4,7 @@
 #include "einfach.h"
 #include "ausgabe.h"
 #include "spiel.h"
+#include "menu.h"
 
 
 int main(){
@@ -19,6 +20,7 @@ int main(){
         {
         case 49:
             spiel(test5);
+            //menuEinfach();
             break;
         case 50:
             spiel(test10);

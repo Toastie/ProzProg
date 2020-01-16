@@ -3,6 +3,7 @@
 
 #include "ausgabe.h"
 #include "spiel.h"
+#include "einfach.h"
 
 void menuEinfach(){
     char eingabe;

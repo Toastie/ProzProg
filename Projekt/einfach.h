@@ -115,7 +115,7 @@ struct nono test10 = {
     }
 };
 
-struct nono nono1 = { 
+struct nono einfach1 = { 
     1,
 
     {{0,1,1,1,0},

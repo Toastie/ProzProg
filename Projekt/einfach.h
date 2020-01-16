@@ -1,7 +1,7 @@
 #ifndef __einfach_h__
 #define __einfach_h__
 
-struct einfach {
+struct nono {
     int schwierigkeit;
     int spalten[15][15];
     int zeilen[15][15];
@@ -10,7 +10,7 @@ struct einfach {
 
 };
 
-struct einfach test5 = {
+struct nono test5 = {
     1,
 
     {{0,1,1,1,0},
@@ -59,7 +59,7 @@ struct einfach test5 = {
 };
 
 
-struct einfach test10 = {
+struct nono test10 = {
     2,
 
     {{0,1,1,1,0,7,7,7,7,7},
@@ -115,7 +115,7 @@ struct einfach test10 = {
     }
 };
 
-struct einfach einfach1 = { 
+struct nono nono1 = { 
     1,
 
     {{0,1,1,1,0},

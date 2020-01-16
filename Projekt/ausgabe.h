@@ -51,7 +51,7 @@ void printEinfach(){
     printf("+---------------------------------------+\n");
 }
 
-int zeileNichtLeer(struct einfach x, int z){
+int zeileNichtLeer(struct nono x, int z){
     int a = 5 * x.schwierigkeit;
 
     for (int i = 0; i < a; i++){
@@ -62,7 +62,7 @@ int zeileNichtLeer(struct einfach x, int z){
     return(0);
 }
 
-int spalteNichtLeer(struct einfach x, int s){
+int spalteNichtLeer(struct nono x, int s){
     int a = 5 * x.schwierigkeit;
 
     for (int i = 0; i < a; i++){
@@ -73,7 +73,7 @@ int spalteNichtLeer(struct einfach x, int s){
     return(0);
 }
 
-void printTest(struct einfach x){
+void printTest(struct nono x){
     int a = 5 * x.schwierigkeit;
 
     //Ausgabe der Anzahl der Kreuze in den Spalten

@@ -4,7 +4,7 @@
 #include "ausgabe.h"
 #include "einfach.h"
 
-int nichtGeloest(struct einfach x){
+int nichtGeloest(struct nono x){
     int a = 5 * x.schwierigkeit;
 
     for (int i = 0; i < a; i++){
@@ -20,7 +20,7 @@ int nichtGeloest(struct einfach x){
     return(0);
 }
 
-void spiel(struct einfach x){
+void spiel(struct nono x){
     int a = 5 * x.schwierigkeit;
     int z,s,e;
     

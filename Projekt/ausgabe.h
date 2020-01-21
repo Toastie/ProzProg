@@ -108,11 +108,13 @@ void printTest(struct nono x){
 
     //Ausgabe der Anzahl der Kreuze in den Zeilen
     for (int i = 0; i < a; i++){
+        printf(UNDER);
         for (int r = 0; r < (a /2) + 1; r++){
             if(spalteNichtLeer(x,r)){
-                printf("|%d",x.zeilen[i][r]);
+                printf(" %d",x.zeilen[i][r]);
             }
         }
+        printf(RESET);
         if((i + 1) % 5 == 0){
             printf(UNDER);
         }

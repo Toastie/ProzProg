@@ -59,19 +59,54 @@ void ausgabe(struct student *x){
     return;
 }   
 
+void del(struct student *x){
+    if(x->nach ==  NULL){
+        x->vor->nach = NULL;
+        return;
+    }else{
+        x->vor->nach = x->nach;
+        x->nach->vor = x->vor;
+        return;
+    }
+}
+
+void einf(struct student *x,struct student *vor, struct student *nach){
+    vor->nach = x;
+    x->vor = vor;
+    x->nach = nach;
+    nach->vor = x;
+}
+
+
 int main(){
 
     struct student *student1;
     struct student *student2;
     struct student *student3;
+    struct student *student4;
+    struct student *student5;
+
+    struct student *test;
+
+    test = init("real","test",1,"lol",4,NULL);
 
     student1 = init("Anna","Musterfrau",22222,"Am Schwarzenberg - Campus 3", 4,NULL);
     student2 = init("Hans", "Peter", 44444, "Kasernenstraße 12", 2, student1);
     student3 = init("Lisa", "Lusitg",66666, "Denickestrasse 15", 8,student2);
+    student4 = init("test","nachname",88888,"Erpelweg 13",9,student3);
+    student5 = init("test2","nachname2",11111,"testweg 12",12,student4);
 
+    ausgabe(student1);
+
+    del(student3);
+
+    ausgabe(student1);
 
     ausgabe(student1);
 
     free(student1);
+    free(student2);
+    free(student4);
+    free(student5);
 
 }

@@ -2,6 +2,8 @@
 #define __ausgabe_h__
 
 #include "einfach.h"
+#include "mittel.h"
+#include "schwer.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,7 +16,6 @@
 #define WHT   "\x1B[37m"
 #define RESET "\x1B[0m"
 #define UNDER "\e[4m"
-#define BOLD "\e[1m"
 
 void printMenu(){
     printf(RESET);
@@ -39,6 +40,44 @@ void printEinfach(){
     printf("+---------------------------------------+\n");
     printf("|                                       |\n");
     printf("|                Einfach                |\n");
+    printf("|                                       |\n");
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|   1.                   2.             |\n");
+    printf("|   3.                   4.             |\n");
+    printf("|   5.                   6.             |\n");
+    printf("|   7.                   8.             |\n");
+    printf("|   9.                   10.            |\n");
+    printf("|               "RED"z: Zurück"RESET"               |\n");
+    printf("+---------------------------------------+\n");
+}
+
+void printMittel(){
+    printf(RESET);
+    system("clear");
+
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|                Mittel                 |\n");
+    printf("|                                       |\n");
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|   1.                   2.             |\n");
+    printf("|   3.                   4.             |\n");
+    printf("|   5.                   6.             |\n");
+    printf("|   7.                   8.             |\n");
+    printf("|   9.                   10.            |\n");
+    printf("|               "RED"z: Zurück"RESET"               |\n");
+    printf("+---------------------------------------+\n");
+}
+
+void printSchwer(){
+    printf(RESET);
+    system("clear");
+
+    printf("+---------------------------------------+\n");
+    printf("|                                       |\n");
+    printf("|                Schwer                 |\n");
     printf("|                                       |\n");
     printf("+---------------------------------------+\n");
     printf("|                                       |\n");
@@ -79,6 +118,7 @@ void printTest(struct nono x){
     //Ausgabe der Anzahl der Kreuze in den Spalten
     for (int i = 0; i < ((a / 2) + 1); i++){
         if(zeileNichtLeer(x,i)){
+            printf("|");
             for(int r = 0; r < (a /2) + 1; r++){
                 if(spalteNichtLeer(x,r)){
                     printf("  ");
@@ -90,9 +130,6 @@ void printTest(struct nono x){
             for (int j = 0; j < a; j++){
                 if(j % 5 == 0){
                     printf(RED "|" RESET);
-                    if(i == (a / 2)){
-                        printf(UNDER);
-                    }
                 }else{
                     printf("|");
                 }
@@ -101,6 +138,9 @@ void printTest(struct nono x){
                 }else {
                     printf(" ");
                 }
+                if(i == (a / 2)){
+                    printf(UNDER);
+                }
             }
             printf(RED "|\n" RESET);
         }
@@ -108,13 +148,17 @@ void printTest(struct nono x){
 
     //Ausgabe der Anzahl der Kreuze in den Zeilen
     for (int i = 0; i < a; i++){
-        printf(UNDER);
-        for (int r = 0; r < (a /2) + 1; r++){
+        printf("|");
+        for (int r = 0; r < (a / 2) + 1; r++){
             if(spalteNichtLeer(x,r)){
-                printf(" %d",x.zeilen[i][r]);
+                if(x.zeilen[i][r] == 0) {
+                    printf("  ");
+                }
+                else {
+                    printf(" %d",x.zeilen[i][r]);
+                }
             }
         }
-        printf(RESET);
         if((i + 1) % 5 == 0){
             printf(UNDER);
         }
@@ -128,6 +172,7 @@ void printTest(struct nono x){
                 printf("|");
             }
             
+            //Kreuze/Punkte setzen
             if(x.array[i][j] == 1){
                 printf("x");
             }else if(x.array[i][j] == 2){

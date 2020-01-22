@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 #include "einfach.h"
+#include "mittel.h"
+#include "schwer.h"
+
 #include "ausgabe.h"
 #include "spiel.h"
 #include "menu.h"
@@ -19,14 +22,13 @@ int main(){
         switch (eingabe)
         {
         case 49:
-            spiel(test5);
-            //menuEinfach();
+            menuEinfach();
             break;
         case 50:
-            spiel(test10);
+            menuMittel();
             break;
         case 51:
-            printf("Platzhalter für Schwer!");
+            menuSchwer();
             break;
         case 52:
             printf("Platzhalter für Anleitung!");

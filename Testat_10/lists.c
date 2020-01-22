@@ -53,19 +53,26 @@ void ausgabe(struct student *x){
     if(x->nach != NULL){
         ausgabe(x->nach);
     }else{
-        printf(RED"\nEnde der Liste erreicht!\n"RESET);
+        printf(RED"Ende der Liste erreicht!\n\n"RESET);
     }
     
     return;
 }   
 
-void del(struct student *x){
-    if(x->nach ==  NULL){
-        x->vor->nach = NULL;
+void del(struct student *anfang,int element){
+
+    for (int i = 0; i < element; i++){
+        anfang = anfang->nach;
+    }
+    
+    if(anfang->nach ==  NULL){
+        anfang->vor->nach = NULL;
+        free(anfang);
         return;
     }else{
-        x->vor->nach = x->nach;
-        x->nach->vor = x->vor;
+        anfang->vor->nach = anfang->nach;
+        anfang->nach->vor = anfang->vor;
+        free(anfang);
         return;
     }
 }
@@ -129,7 +136,7 @@ int main(){
 
     ausgabe(student1);
 
-    del(student3);
+    del(student1,3);
 
     ausgabe(student1);
 

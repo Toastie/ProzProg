@@ -78,6 +78,33 @@ void einf(struct student *x,struct student *vor, struct student *nach){
 }
 
 
+void tauschen(struct student *x, struct student *y){
+    struct student *zwischen;
+
+    x->vor->nach = y;
+    
+    zwischen = y->vor;
+
+    y->vor = x->vor;
+
+    x->vor = zwischen;
+
+    x->vor->nach = x;
+
+    zwischen = y->nach;
+
+    y->nach = x->nach;
+
+    y->nach->vor = y;
+
+    x->nach = zwischen;
+
+    x->nach->vor = x;
+
+    return;
+}
+
+
 int main(){
 
     struct student *student1;
@@ -98,11 +125,14 @@ int main(){
 
     ausgabe(student1);
 
+    tauschen(student3,student4);
+
+    ausgabe(student1);
+
     del(student3);
 
     ausgabe(student1);
 
-    ausgabe(student1);
 
     free(student1);
     free(student2);

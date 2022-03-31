@@ -40,7 +40,7 @@ int main(){
                 scanf("%d",&z);
                 if (z > 1000 || z < 1){
                     i--;
-                    printf("Auserhalb des Wertebereichs\n");
+                    printf("Ausserhalb des Wertebereichs\n");
                 }else{
                     array[i] = z;
                 }
